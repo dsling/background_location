@@ -7,7 +7,7 @@ import 'dart:io' show Platform;
 /// lcoation updates in iOS and Android
 class BackgroundLocation {
   // The channel to be used for communication.
-  // This channel is also refrenced inside both iOS and Abdroid classes
+  // This channel is also referenced inside both iOS and Abdroid classes
   static const MethodChannel _channel =
       const MethodChannel('almoullim.com/background_location');
 
@@ -21,13 +21,11 @@ class BackgroundLocation {
     return await _channel.invokeMethod("start_location_service");
   }
 
-  static setAndroidNotification({String title, String message, String icon}) async {
+  static setAndroidNotification(
+      {String title, String message, String icon}) async {
     if (Platform.isAndroid) {
-      return await _channel.invokeMethod("set_android_notification", <String, dynamic>{
-        "title": title,
-        "message": message,
-        "icon": icon
-      });
+      return await _channel.invokeMethod("set_android_notification",
+          <String, dynamic>{"title": title, "message": message, "icon": icon});
     } else {
       //return Promise.resolve();
     }
@@ -42,7 +40,6 @@ class BackgroundLocation {
       //return Promise.resolve();
     }
   }
-
 
   /// Get the current location once.
   Future<Location> getCurrentLocation() async {
@@ -102,7 +99,8 @@ class BackgroundLocation {
             accuracy: locationData["accuracy"],
             bearing: locationData["bearing"],
             speed: locationData["speed"],
-            time: locationData["time"],          ),
+            time: locationData["time"],
+          ),
         );
       }
     });
@@ -128,7 +126,7 @@ class Location {
   double accuracy;
   double speed;
   double time;
-  
+
   toMap() {
     var obj = {
       'latitude': this.latitude,
@@ -140,5 +138,5 @@ class Location {
       'time': this.time
     };
     return obj;
-  } 
+  }
 }

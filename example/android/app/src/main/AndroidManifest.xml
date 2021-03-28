@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.backgeound_location_example">
+    package="com.example.background_location_example">
 
     <!-- io.flutter.app.FlutterApplication is an android.app.Application that
          calls FlutterMain.startInitialization(this); in its onCreate method.
@@ -12,8 +12,7 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application
-        android:name="io.flutter.app.FlutterApplication"
-        android:label="backgeound_location_example"
+        android:label="background_location_example"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
@@ -26,13 +25,14 @@
                  until Flutter renders its first frame. It can be removed if
                  there is no splash screen (such as the default splash screen
                  defined in @style/LaunchTheme). -->
-            <meta-data
-                android:name="io.flutter.app.android.SplashScreenUntilFirstFrame"
-                android:value="true" />
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="flutterEmbedding"
+            android:value="2" />
     </application>
 </manifest>
